@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Weather App</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="scripts/weatherapp.js"></script>
+
+</head>
+
+<body ng-app="weatherApp">
+
+  <h2>Weather App</h2>
+  
+  <div class="app" ng-controller="WeatherCtrl">
+  
+    
+    <form>
+      <div class="form-group">
+		<label for="enter-location">Enter location:</label>
+        <input type="text" class="form-control" id="enter-location" placeholder="ex: seattle, moscow, 32082" ng-model="inputlocation" />
+	  </div>
+	  <div class="error bg-warning"></div>
+	  <button class="btn btn-primary" ng-click="getWeather()">Get current weather</button>
+	</form>
+      
+    
+    
+  
+    <div id="weather-forecast">
+  
+      <div id="city">City: 
+        <span class="result">{{currWeather.city}}</span>
+      </div>
+      <div id="temperature">Temperature: 
+        <span class="result">{{currWeather.temp}}</span>
+      </div>
+      <div id="description">Weather conditions:
+        <span class="result">{{currWeather.conditions}}</span>
+      </div>
+      <weather-icon conditions="{{currWeather.conditions}}"></weather-icon>
+    
+    </div>
+	
+</div>
+  
+  
+</body>
+</html>
